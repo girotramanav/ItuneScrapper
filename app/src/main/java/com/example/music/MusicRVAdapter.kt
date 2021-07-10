@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 
 class MusicRVAdapter(private val context : Context) : RecyclerView.Adapter<MusicRVAdapter.SongsViewHolder>() {
 
-    private val allSongs = ArrayList<Songs>()
+    private var allSongs : List<Songs> = emptyList()
 
     inner class SongsViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val image : ImageView = itemView.findViewById(R.id.image)
@@ -32,10 +32,10 @@ class MusicRVAdapter(private val context : Context) : RecyclerView.Adapter<Music
         return allSongs.size
     }
 
-    fun updateList(newList : ArrayList<Songs>)
+    fun updateList(newList : List<Songs>)
     {
-        allSongs.clear()
-        allSongs.addAll(newList)
+        allSongs = emptyList()
+        allSongs = newList
         notifyDataSetChanged()
     }
 }
